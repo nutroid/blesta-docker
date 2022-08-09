@@ -1,10 +1,10 @@
 FROM alpine:3.12
 
-LABEL Maintainer="Eddy <me@edy.io>" \
+LABEL Maintainer="Sayak B <me@sayakb.com>" \
       Description="Blesta with Nginx & PHP-FPM based on Alpine Linux"
 
-ENV BLESTA_VERSION=4.10.2 \
-    DOWNLOAD_ID=154
+ENV BLESTA_VERSION=5.5.0 \
+    DOWNLOAD_ID=213
 
 ARG GID=1000
 ARG UID=1000
@@ -53,7 +53,7 @@ USER nobody
 WORKDIR /var/www
 
 # Download blesta
-RUN curl -Lo blesta.zip https://account.blesta.com/client/plugin/download_manager/client_main/download/${DOWNLOAD_ID} \
+RUN curl -Lo blesta.zip https://account.blesta.com/client/plugin/download_manager/client_main/download/${DOWNLOAD_ID}/blesta-${BLESTA_VERSION}.zip \
     && unzip blesta.zip \
     && rm blesta.zip
 
