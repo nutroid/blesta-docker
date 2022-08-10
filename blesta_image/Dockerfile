@@ -12,7 +12,8 @@ ARG UID=1000
 # Install packages and remove default server definition
 RUN apk --no-cache add php7 php7-fpm php7-opcache php7-mysqli php7-json php7-openssl php7-curl php7-gmp \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session php7-imap \
-    php7-pdo_mysql php7-pdo php7-mbstring php7-gd php7-iconv php7-simplexml php7-pecl-mailparse nginx supervisor curl shadow && \
+    php7-pdo_mysql php7-pdo php7-mbstring php7-gd php7-iconv php7-simplexml php7-pecl-mailparse nginx \
+    supervisor curl shadow --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ && \
     rm /etc/nginx/conf.d/default.conf
 
 # Download ioncube
