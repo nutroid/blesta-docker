@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.16.2
 
 LABEL Maintainer="Sayak B <me@sayakb.com>" \
       Description="Blesta with Nginx & PHP-FPM based on Alpine Linux"
@@ -17,10 +17,10 @@ RUN apk --no-cache add php7 php7-fpm php7-opcache php7-mysqli php7-json php7-ope
 
 # Download ioncube
 RUN cd /tmp \
-    && curl -sSL https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz -o ioncube.tar.gz \
+    && curl -sSL https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_aarch64.tar.gz -o ioncube.tar.gz \
     && tar -xf ioncube.tar.gz \
-    && mv ioncube/ioncube_loader_lin_7.3.so /usr/lib/php7/modules/ioncube_loader_lin_7.3.so \
-    && echo 'zend_extension = /usr/lib/php7/modules/ioncube_loader_lin_7.3.so' > /etc/php7/conf.d/00-ioncube.ini \
+    && mv ioncube/ioncube_loader_lin_7.4.so /usr/lib/php7/modules/ioncube_loader_lin_7.4.so \
+    && echo 'zend_extension = /usr/lib/php7/modules/ioncube_loader_lin_7.4.so' > /etc/php7/conf.d/00-ioncube.ini \
     && rm ioncube.tar.gz
 
 # Copy configs
