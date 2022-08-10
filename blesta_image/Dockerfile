@@ -53,7 +53,7 @@ USER nobody
 WORKDIR /var/www
 
 # Download blesta
-RUN curl -Lo blesta.zip https://account.blesta.com/client/plugin/download_manager/client_main/download/${DOWNLOAD_ID}/blesta-${BLESTA_VERSION}.zip \
+RUN curl -Lo blesta.zip https://account.blesta.com/client/plugin/download_manager/client_main/download/${DOWNLOAD_ID}/blesta-${BLESTA_VERSION}.zip --http1.1 \
     && unzip blesta.zip \
     && rm blesta.zip
 
