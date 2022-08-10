@@ -1,4 +1,4 @@
-FROM alpine:3.16.2
+FROM arm64v8/alpine:3.16.2
 
 LABEL Maintainer="Sayak B <me@sayakb.com>" \
       Description="Blesta with Nginx & PHP-FPM based on Alpine Linux"
