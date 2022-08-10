@@ -9,4 +9,5 @@ else
     cp -R /var/www/blesta/. /var/www/html
 fi
 
+echo "$@"
 exec "$@"
