@@ -1,7 +1,7 @@
 FROM arm64v8/alpine:3.16.2
 
 LABEL Maintainer="Sayak B <me@sayakb.com>" \
-      Description="Blesta with Nginx & PHP-FPM based on Alpine Linux"
+      Description="Blesta for ARM64 with Nginx & PHP-FPM based on Alpine Linux"
 
 ENV BLESTA_VERSION=5.5.0 \
     DOWNLOAD_ID=213
