@@ -1,7 +1,9 @@
-# About
+# Blesta in Docker for ARM64
+
+## About
 There’s a lack of information about setting up and running Blesta inside docker using Traefik as reverse proxy. This guide focuses on the fastest and easiest way to do that! The blesta services inside container are ran by a non root user making this setup production friendly. 
 
-# Getting Started
+## Getting Started
 We’ll be using docker, docker-compose and CloudFlare for DNS challenges to generate certificates. DNS challenges allow wildcard certificates allowing you to add any subdomains on the go. If you prefer using something else, have a look at [Traefik's Docs](https://docs.traefik.io/https/acme/).
 
 ### Requirements
@@ -10,7 +12,7 @@ We’ll be using docker, docker-compose and CloudFlare for DNS challenges to gen
 - [Docker](https://docs.docker.com/engine/install/ubuntu/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
-# Installation
+## Installation
 
 ### Basic configuration
 Once you have met all of the requirements, start by cloning this repository
@@ -45,13 +47,13 @@ You can now navigate to the DOMAIN you specified earlier to access blesta to sta
 
 Once you navigate to blesta in your web browser, you should be asked to enter MySQL details. For hostname use `db`. For username and database use `blesta` and for password use `MYSQL_PASSWORD` you set earlier. Once blesta is done generating tables, you should be asked to create your first user to access blesta!
 
-# FAQ
+## FAQ
 ### What is UID and GID?
 UID stands for user id and gid is for group id. These are your linux user and group ids. To see your current user's ids use `id` command. To look up a specific user use `id username`.
 ### How to change UID and GID of the user inside container?
 The reason why you would want to change these IDs is if you prefer a host user with different UID and GID other than 1000 to own the volumes. You can achieve this by editing Dockerfile and changing GID and UID to whatever ID you prefer. Then building the image using `docker build . -t blesta`. Make sure to change the image in `docker-compose.yml` to whatever you tag with it. In this case `blesta`
 
-# Known issues
+## Known issues
 - Two-Factor protection doesn't work, once setup you're unable to login even if the generated code is correct. The issue might be related to Traefik.
 - Changing default theme's colors doesn't work, this is related to how nginx is handling rewrite. Should be fixed soon.
 
